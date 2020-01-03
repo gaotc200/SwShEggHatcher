@@ -37,7 +37,8 @@ typedef enum {
 	MINUS,
 	THROW,
 	NOTHING,
-	TRIGGERS
+	TRIGGERS,
+	HOME
 } Buttons_t;
 
 typedef struct {
@@ -47,60 +48,175 @@ typedef struct {
 
 static const command step[] = {
 	// Setup controller
-	{ NOTHING,  250 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  150 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  150 },
-	{ A,          5 },
-	{ NOTHING,  250 },
+	{ NOTHING, 100 },
+	{ TRIGGERS,  5 },
+	{ NOTHING, 100 },
+	{ TRIGGERS,  5 },
+	{ NOTHING, 100 },
+	{ A,         5 },
+	{ NOTHING, 100 },
 
-	// Flying to front of daycare
-	{ X,         5 },
-	{ NOTHING,  100 },
-	{ DOWN,      20 },
-	{ RIGHT,     50 }, 
-	{ A,         5 }, 
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  100 },
+	// Starting from den, cursor on map in X menu
+	// move to town
+	{ NOTHING, 100 },
+	{ X,        10 },
+	{ NOTHING,  50 },
+	{ A,         5 },
+	{ NOTHING, 150 },
+	{ UP,        4 },
+	{ NOTHING,  10 },
+	{ LEFT,      2 },
+	{ NOTHING,  20 },
+	{ A,         5 },
+	{ NOTHING,  50 },
+	{ A,         5 },
+	{ NOTHING, 425 },
 
-	// Walking back to get egg and putting it in party
-	{ DOWN,     100 },
-	{ LEFT,       5 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-    { A,          5 },
-	{ NOTHING,  200 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-	{ DOWN,       5 },
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  100 },
-	{ A,          5 },
-	{ NOTHING,  200 },
-	{ A,          5 },
-	{ NOTHING,  100 },
+	// move to cafe
+	{ PLUS,      5 },
+	{ NOTHING,  30 },
+	{ DOWN,      5 },
+	{ NOTHING,  10 },
+	{ LEFT,    200 },
+	{ NOTHING,  10 },
+	{ UP,       80 },
+	{ NOTHING,  10 },
+	{ PLUS,      5 },
+	{ NOTHING,  50 },
+	{ LEFT,     20 },
+	{ NOTHING,  50 },
+	{ UP,       27 },
+	{ NOTHING,  50 },
+	{ RIGHT,    10 },
+	{ NOTHING, 175 },
 
-	//Getting on bike, moving up and to the right, then start looping
-	{ PLUS,       5 },
-	{ UP_RIGHT, 150 },
-	{ UP_LEFT, 1000 },
-	{ A,          5 },
-    { NOTHING, 1000 },
-	{ A,          5 },
-	{ NOTHING,  200 },
-	{ B,          5 },
-	{ UP_LEFT, 1500 },
-	{ PLUS,       5 },
-	{ NOTHING,  100 }
+	// talk to npc
+	{ UP,       80 },
+	{ NOTHING,  50 },	
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING, 200 },
+	{ A,         5 },
+	{ NOTHING, 875 },
+
+	//fight
+	{ A,        10 },
+	{ NOTHING,  30 },
+	{ A,        10 },
+	{ NOTHING,  30 },
+	{ A,        10 },
+	{ NOTHING,  70 },
+	{ A,        10 },
+	{ NOTHING,  30 },
+	{ A,        10 },
+	{ NOTHING,  30 },
+	{ A,        10 },
+
+	{ NOTHING, 500 },
+	{ A,        10 },
+	{ NOTHING, 480 },
+	{ A,        10 },
+	
+	{ NOTHING, 200 },
+	{ A,         5 },
+	{ NOTHING,  50 },
+	{ A,         5 },
+	{ NOTHING, 300 },
+	
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING, 200 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING, 100 },
+	
+	// get out and back to wild
+	{ DOWN,     80 },
+	{ NOTHING, 150 },
+	{ X,        10 },
+	{ NOTHING,  50 },
+	{ A,         5 },
+	{ NOTHING, 150 },
+	{ DOWN,      3 },
+	{ RIGHT,     1 },
+	{ NOTHING,  20 },
+	{ A,         5 },
+	{ NOTHING,  50 },
+	{ A,         5 },
+	{ NOTHING, 425 },
+
+	// go to den
+	{ PLUS,      5 },
+	{ NOTHING,  30 },
+	{ RIGHT,    18 },
+	{ NOTHING,  30 },
+	{ UP,      248 },
+	{ NOTHING,  10 },
+	{ PLUS,      5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  70 },
+	{ A,         5 },
+	{ NOTHING, 100 },
+
+	// change date
+	{ HOME,      5 },
+	{ NOTHING,  30 },
+	{ DOWN,      5 },
+	{ NOTHING,   5 },
+	{ RIGHT,    20 },
+	{ NOTHING,   5 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+
+	{ DOWN,     70 },
+	{ NOTHING,   5 },
+	{ A,         5 },
+	{ NOTHING,   5 },
+	{ DOWN,     20 },
+	{ NOTHING,   5 },
+	{ A,         5 },
+	{ NOTHING,  20 },
+	
+	{ DOWN,     20 },
+	{ NOTHING,  10 },
+	{ A,         5 },
+	{ NOTHING,  20 },
+	{ RIGHT,     5 },
+	{ NOTHING,   5 },
+	{ RIGHT,     5 },
+	{ NOTHING,   5 },
+	{ UP,        5 },
+	{ NOTHING,   5 },
+	{ RIGHT,    20 },
+	{ NOTHING,   5 },
+	{ A,         5 },
+	{ NOTHING,   5 },
+	{ HOME,      5 },
+	{ NOTHING,  20 },
+	{ A,         5 },
+	{ NOTHING,  80 },
+	{ B,         5 },
+	{ NOTHING,  30 },
+	{ A,         5 },
+	{ NOTHING,  30 },
+	{ DOWN,     10 },
+	{ NOTHING, 200 }
 };
 
 // Main entry point.
@@ -372,6 +488,10 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 				case TRIGGERS:
 					ReportData->Button |= SWITCH_L | SWITCH_R;
+					break;
+
+				case HOME:
+					ReportData->Button |= SWITCH_HOME;
 					break;
 
 				default:

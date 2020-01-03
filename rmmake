@@ -1,0 +1,2 @@
+rm Joystick.bin Joystick.eep Joystick.elf Joystick.hex Joystick.lss Joystick.map Joystick.sym
+rm -rf obj
