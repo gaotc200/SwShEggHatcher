@@ -1,5 +1,3 @@
-Simple explaination of how to use 
-
 Tested working with
 - **MacOS 10.13.6 (17G10021)** + **dfu-programmer 0.6.2** + **avr-gcc 9.2.0** + **Arduino UNO R3**
 - **MacOS 10.15.6 (19G2021)** + **dfu-programmer 0.7.2** + **avr-gcc 9.3.0** + **Arduino UNO R3**
@@ -12,3 +10,5 @@ How to use
 4. `./upload Joystick.hex`
 5. (Optional) Save a copy of *Joystick.hex*. You could skip the `make` process and upload the hex file next time.
 5. `./rmmake`. This will clear the files from previous `make`. 
+
+Thanks to [hoskinsw/SwShEggHatcher](https://github.com/hoskinsw/SwShEggHatcher) and all the way up to [progmem/Switch-Fightstick](https://github.com/progmem/Switch-Fightstick)
