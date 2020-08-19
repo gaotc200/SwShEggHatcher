@@ -55,7 +55,8 @@ static const command step[] = {
 	{ NOTHING, 100 },
 	{ A,         5 },
 	{ NOTHING, 100 },
-
+	
+	// Start
 	// A spam
 	{ NOTHING, 10},
 	{ A,         5 }
